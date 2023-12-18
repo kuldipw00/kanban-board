@@ -1,0 +1,57 @@
+.header{
+    position: sticky;
+    top: 0;
+    background: #fff;
+}
+.selecOption
+{
+    position: relative;
+    right: 0;
+    font-size: 14px;
+    width: 5%;
+    height: 3%;
+    margin: 10px;
+    text-align: center;
+    outline: 1px solid #bab8b8;
+    border-radius: 2px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 
+    2px 2px 3px 0px #efeaea,
+    2px 2px 3px 0px   #efeaea,
+    -2px 2px 3px 0px  #efeaea,
+    2px -2px 3px 0px  #efeaea;
+}
+.selectModle{
+    width: 16%;
+    
+    position: absolute;
+    margin-left: 10px;
+    border-radius: 4px;
+    background-color: #f6f7f7;
+    box-shadow: 
+    2px 2px 3px 0px #efeaea,
+    2px 2px 3px 0px   #efeaea,
+    -2px 2px 3px 0px  #efeaea,
+    2px -2px 3px 0px  #efeaea;
+}
+.grouping{
+    display: flex;
+    justify-content: space-between;
+    height: 10px;
+    margin: 15px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.text{
+    font-size: 15px;
+}
+.select{
+    font-size: 15px;
+    width: 100px;
+    border: none;
+    outline: #b9b3b3;
+    border-radius: 2px;
+    padding: 2px;
+    color: black;
+}

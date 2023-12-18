@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+import { useEffect, useState } from 'react';
 import './App.css';
+import KanbanBoard from './components/KanbanBoard/KanbanBoard.js';
+import { GlobalContext } from './context/GlobalContext';
 
 function App() {
+  const [state, setstate] = useState({});
+  useEffect(() => {
+      callApi();
+  }, []);
+  const callApi = async() => {
+    const response = await fetch('https://api.quicksell.co/v1/internal/frontend-assignment')
+
+    const data = await response.json()
+
+    let groupedData = Object.groupBy(data.tickets,(item => item.status))
+    setstate({
+      ApiData: data,
+      FilterData: groupedData
+    });
+  }
+
+  const setContexts = (obj) => {
+    setstate({
+      ...state,
+      ...obj
+    })
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalContext.Provider value={
+        {
+        ...state,
+        setContexts
+        }
+        }>
+        <KanbanBoard />
+      </GlobalContext.Provider>
     </div>
   );
 }
